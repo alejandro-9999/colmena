@@ -5,10 +5,10 @@ import { Divider, Switch } from "@fluentui/react-components";
 
 const Tasks = () => {
     const local_task = JSON.parse(localStorage.getItem("tasks"));
-
+    
     const [completedList, setCompletedList] = useState(false);
-    const [tasks, setTasks] = useState(local_task);
-    const [filteredTasks, setFilteredTasks] = useState(tasks);
+    const [tasks, setTasks] = useState(local_task?local_task:[]);
+    const [filteredTasks, setFilteredTasks] = useState([]);
 
     const deleteTask = (id) => {
         const newArray = [...tasks.slice(0, id), ...tasks.slice(id + 1)];
